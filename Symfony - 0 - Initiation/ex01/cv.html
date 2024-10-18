@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .w-full {
+            width: 100%;
+        }
+
+        .h-full {
+            height: 100%;
+        }
+
+        .b-0 {
+            bottom: 0;
+        }
+
+        .fixed {
+            position: fixed;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex-auto {
+            flex: auto;
+        }
+
+        .flex-col {
+            flex-direction: column;
+        }
+
+        .flex-row {
+            flex-direction: row;
+        }
+
+        .justify-center {
+            justify-content: center;
+        }
+
+        .justify-around {
+            justify-content: space-around;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .font-bold {
+            font-weight: 700;
+        }
+
+        .font-small {
+            font-size: small;
+        }
+
+        .color-grey {
+            color: #424242;
+        }
+
+        .bg-teal {
+            background-color: teal;
+        }
+
+        .bg-antiquewhite {
+            background-color: antiquewhite;
+        }
+
+        .border {
+            border: 1px solid;
+        }
+
+        .gap-15 {
+            gap: 15px;
+        }
+
+        table {
+            border: solid 1px;
+        }
+
+        table th,
+        table td {
+            border: solid 1px;
+        }
+
+        table {
+            display: inline-table;
+            margin: 1em;
+            border: solid 1px;
+        }
+
+        table th,
+        table td {
+            border: solid 1px;
+            align-self: center;
+        }
+    </style>
+    <title>Resume - John Doe</title>
+</head>
+
+<body style="margin: 0; padding: 0;">
+    <div class="w-full h-full flex flex-col">
+        <div id="header" class="w-full bg-teal flex justify-center items-center" style="height: 10%">
+            <h1>John Doe</h1>
+        </div>
+        <div id="body" class="w-full flex-auto flex flex-row bg-antiquewhite justify-around">
+            <div class="flex flex-col items-center gap-15" style="width: 45%">
+                <h2>Skills</h2>
+                <div>
+                    <table style="border-collapse: collapse;">
+                        <tbody>
+                            <tr>
+                                <th>Skill</th>
+                                <th>Level</th>
+                                <th>Description</th>
+                            </tr>
+                            <tr>
+                                <td>CSS</td>
+                                <td>Medium</td>
+                                <td>Can do beautifull things, but not on this project</td>
+                            </tr>
+                            <tr>
+                                <td>HTML</td>
+                                <td>Medium</td>
+                                <td>Like CSS, I can do it. But I don't have a figma to follow</td>
+                            </tr>
+                            <tr>
+                                <td>Java</td>
+                                <td>Medium</td>
+                                <td style="border-bottom: none;">Good enougth to work without anyone</td>
+                            </tr>
+                            <tr>
+                                <td>Angular</td>
+                                <td style="border-right: none;">Medium</td>
+                                <td style="border: 1px solid #424242;">Better practice than pure HTML, it helps a lot,
+                                    so I use it a lot</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="flex flex-col items-center" style="width: 45%;">
+                <h2>Experiences</h2>
+                <div class="flex flex-col gap-15">
+                    <div class="flex flex-col">
+                        <span class="font-bold">Intern Architect</span>
+                        <span class="font-small color-grey">Chaudfountain Architects</span>
+                        <ul>
+                            <li>Develop and executed online, social media and print marketing strategies for new
+                                projects.
+                                <ol>
+                                    <li>Only for one of the main activity of the startup</li>
+                                    <li>Using Metal Musics in ads</li>
+                                </ol>
+                            </li>
+
+                            <li>Participaed in all phases of the design and construction processes on 6 major projects
+                                nationally and internationally.</li>
+                        </ul>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-bold">MSc Space Syntax: Architecture and Cities</span>
+                        <span class="font-small color-grey">Bartlett School of Architecture (UCL)</span>
+                        <ul>
+                            <li>Spatial Dynamics and Computation</li>
+                            <li>Architectural Phenomena</li>
+                            <li>Buildings, Organizations and Networks</li>
+                            </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer" class="w-full bg-teal flex justify-center items-center" style="height: 5%">
+            Thanks for reading this resume
+        </div>
+    </div>
+</body>
+
+</html>

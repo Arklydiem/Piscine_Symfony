@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ category | capitalize }} Article{% endblock %}
+
+{% block content %}
+    <h2>{{ category | capitalize }}</h2>
+    <p>{{ content }}</p>
+    <a href="{{ path('main_page') }}">Back to Main Page</a>
+{% endblock %}

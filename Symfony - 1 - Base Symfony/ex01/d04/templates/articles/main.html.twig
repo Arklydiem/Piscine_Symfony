@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Main Page{% endblock %}
+
+{% block content %}
+<h2>Available Articles</h2>
+<ul>
+    {% for article in articles %}
+        <li><a href="{{ path('article_page', { 'category': article }) }}">{{ article | capitalize }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

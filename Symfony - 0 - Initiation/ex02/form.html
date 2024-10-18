@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form style="display: flex; flex-direction: column; gap: 15px; max-width: 500px;">
+        <div style="display: flex; flex-direction: column; gap: 3px;">
+            <label for="firstname">firstname</label>
+            <input style="width: 253px;" type="text" id="firstname" name="firstname">
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 3px;">
+            <label for="name">name</label>
+            <input style="width: 253px;" type="text" id="name" name="name">
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 3px;">
+            <label for="age">age</label>
+            <input style="width: 253px;" type="number" id="age" name="age">
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 3px;">
+            <label for="phone">phone</label>
+            <input style="width: 253px;" type="tel" id="phone" name="phone">
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 3px;">
+            <label for="email">email</label>
+            <input style="width: 253px;" type="email" id="email" name="email">
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 3px;">
+            <label for="student">Student at 42 ?</label>
+            <input style="width: 15px;" type="checkbox" id="student" name="student">
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 3px;">
+            <span>Gender</span>
+            <div>
+                <label for="gender_male">Male</label>
+                <input style="width: 15px;" type="radio" id="gender_male" name="gender" value="Male">
+            </div>
+            <div>
+                <label for="gender_female">Female</label>
+                <input style="width: 15px;" type="radio" id="gender_female" name="gender" value="Female">
+            </div>
+            <div>
+                <label for="gender_other">Other</label>
+                <input style="width: 15px;" type="radio" id="gender_other" name="gender" value="Other">
+            </div>
+        </div>
+        <input style="width: 253px;" type="button" onclick="displayFormContents()" value="Run that sexy Javascript !">
+    </form>
+</body>
+<script src="popup.js"></script>
+
+</html>

@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}First Form{% endblock %}
+
+{% block body %}
+    <h1>Submit a Message</h1>
+    
+    {{ form_start(form) }}
+    {{ form_row(form.message) }}
+    {{ form_row(form.include_timestamp) }}
+    {{ form_row(form.submit) }}
+    {{ form_end(form) }}
+
+    {% if last_line %}
+        <h2>Last Submitted Line:</h2>
+        <p>{{ last_line }}</p>
+    {% endif %}
+{% endblock %}

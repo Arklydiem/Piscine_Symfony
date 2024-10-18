@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Color Shades{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            text-align: center;
+        }
+        th {
+            text-align: center;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <h1>Color Shades</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                {% for colorName, colorShades in shades %}
+                    <th>{{ colorName|capitalize }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in range(0, numShades - 1) %}
+                <tr>
+                    {% for colorName, colorShades in shades %}
+                        <td style="background-color: {{ colorShades[i] }}; height: {{ cellHeight }}px; width: {{ cellWidth }}px;"></td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

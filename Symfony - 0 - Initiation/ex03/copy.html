@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Bar Layout</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div style="display: flex; flex-direction: row; gap: 40px;">
+        <div style="width: 350px; display: flex; flex-direction: column;">
+            <h2>Frontend</h2>
+            <div>
+                <div>
+                    <li style="margin-bottom: 3px;">HTML5</li>
+                    <div>
+                        <p style="--progresstool-width: 80%" data-value="80"></p>
+                        <progress value="80" max="100"></progress>
+                    </div>
+                </div>
+                <div>
+                    <li style="margin-bottom: 3px;">CSS3</li>
+                    <div>
+                        <p style="--progresstool-width: 60%;" data-value="60"></p>
+                        <progress value="60" max="100"></progress>
+                    </div>
+                </div>
+                <div>
+                    <li style="margin-bottom: 3px;">jQuery</li>
+                    <div>
+                        <p style="--progresstool-width: 50%;" data-value="50"></p>
+                        <progress value="50" max="100"></progress>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="width: 350px; display: flex; flex-direction: column;">
+            <h2>Backend</h2>
+            <div>
+                <div>
+                    <li style="margin-bottom: 3px;">Python</li>
+                    <div>
+                        <p style="--progresstool-width: 75%;" data-value="75"></p>
+                        <progress value="75" max="100"></progress>
+                    </div>
+                </div>
+                <div>
+                    <li style="margin-bottom: 3px;">PHP</li>
+                    <div>
+                        <p style="--progresstool-width: 65%;" data-value="65"></p>
+                        <progress value="65" max="100"></progress>
+                    </div>
+                </div>
+                <div>
+                    <li style="margin-bottom: 3px;">Node.js</li>
+                    <div>
+                        <p style="--progresstool-width: 35%;" data-value="35"></p>
+                        <progress value="35" max="100"></progress>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
