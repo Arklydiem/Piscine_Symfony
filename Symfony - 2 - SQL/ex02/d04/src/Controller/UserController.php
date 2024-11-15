@@ -37,52 +37,43 @@ class UserController extends AbstractController
         ]);
     }
 
-//    /**
-//     * @throws \DateMalformedStringException
-//     */
-//    #[Route('/e02', name: 'create_user', methods: ['POST'])]
-//    public function create(Request $request): Response
-//    {
-//        $message = null;
-//
-//        if ($request->isMethod('POST')) {
-//            $username = $request->request->get('username');
-//            $name = $request->request->get('name');
-//            $email = $request->request->get('email');
-//            $enable = (bool) $request->request->get('enable');
-//            $birthdate = new \DateTime($request->request->get('birthdate'));
-//            $address = $request->request->get('address');
-//
-//            $result = $this->userService->createUser($username, $name, $email, $enable, $birthdate, $address);
-//
-//            if ($result) {
-//                $message = 'User created successfully!';
-//            } else {
-//                $message = 'Error creating the user.';
-//            }
-//        }
-//
-//        return $this->render('user/create_user.html.twig', [
-//            'message' => $message,
-//        ]);
-//    }
-//
-//
-//    #[Route('/e02', name: 'get_users', methods: ['GET'])]
-//    public function getUsers(Request $request): Response
-//    {
-//        $users = $this->userService->getUsers();
-//
-//        if (empty($users)) {
-//            $message = 'No users found.';
-//        } else {
-//            $message = null;
-//        }
-//
-//        return $this->render('user/table.html.twig', [
-//            'users' => $users,
-//            'message' => $message,
-//        ]);
-//    }
+    #[Route('/e02/createUser', name: 'createUser', methods: ['POST', 'GET'])]
+    public function create(Request $request): Response
+    {
+        $message = null;
 
+        if ($request->isMethod('POST')) {
+            $username = $request->request->get('username');
+            $name = $request->request->get('name');
+            $email = $request->request->get('email');
+            $enable = (bool) $request->request->get('enable');
+            $birthdate = new \DateTime($request->request->get('birthdate'));
+            $address = $request->request->get('address');
+
+            $result = $this->userService->createUser($username, $name, $email, $enable, $birthdate, $address);
+
+            if ($result) {
+                $message = 'User created successfully!';
+            } else {
+                $message = 'Error creating the user.';
+            }
+        }
+
+        return $this->render('user/createUser.html.twig', [
+            'message' => $message,
+        ]);
+    }
+
+    #[Route('/e02', name: 'getUsers', methods: ['GET'])]
+    public function getUsers(Request $request): Response
+    {
+        $users = $this->userService->getUsers();
+
+        $message = empty($users) ? 'No users found.' : null;
+
+        return $this->render('user/table.html.twig', [
+            'users' => $users,
+            'message' => $message,
+        ]);
+    }
 }

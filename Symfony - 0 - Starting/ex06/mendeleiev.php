@@ -8,7 +8,7 @@
 
     foreach ($lines as $line) {
         if (strpos($line, ' = ') === false) {
-            continue; 
+            continue;
         }
 
         list($name, $properties) = explode(' = ', $line);
@@ -29,7 +29,7 @@
 
             if ($element['position'] == 17) {
                 $rows[] = $currentRow;
-                $currentRow = []; 
+                $currentRow = [];
             }
         }
     }
@@ -37,6 +37,8 @@
     if (!empty($currentRow)) {
         $rows[] = $currentRow;
     }
+
+    ob_start();
 ?>
 
 <!DOCTYPE html>
@@ -92,7 +94,7 @@
         }
         .selected {
             box-shadow: 0 0 10px gold, 0 0 3px gold, 0 0 2px white !important;
-            border: 1xp solid white !important;
+            border: 1px solid white !important;
             background-color: rgb(204, 204, 204) !important;
             h4 {
                 text-shadow: 0 0 15px gold, 0 0 2px gold;
@@ -108,35 +110,35 @@
     </style>
 </head>
 <body>
-    <div style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center">
-        <table>
+<div style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center">
+    <table>
         <?php
-            foreach ($rows as $row) {
-                echo '<tr>';
-                for ($i = 0; $i < 18; $i++) {
-                    echo '<td>';
-                    echo "<div class=\"cells\">";
+        foreach ($rows as $row) {
+            echo '<tr>';
+            for ($i = 0; $i < 18; $i++) {
+                echo '<td>';
+                echo "<div class=\"cells\">";
 
-                    foreach ($row as $element) {
-                        if ($element['position'] == $i) {
-                            echo "<div class=\"filled\">";
-                                echo "<p class=\"name\">{$element['name']}</p>";
-                                echo "<p class=\"number\">{$element['number']}</p>";
-                                echo "<h4>{$element['small']}</h4>";
-                                echo "<p class=\"molar\">{$element['molar']}</p>";
-                            echo "</div >";
-                            $found = true;
-                            break;
-                        }
+                foreach ($row as $element) {
+                    if ($element['position'] == $i) {
+                        echo "<div class=\"filled\">";
+                        echo "<p class=\"name\">{$element['name']}</p>";
+                        echo "<p class=\"number\">{$element['number']}</p>";
+                        echo "<h4>{$element['small']}</h4>";
+                        echo "<p class=\"molar\">{$element['molar']}</p>";
+                        echo "</div >";
+                        $found = true;
+                        break;
                     }
-                    echo "</div >";
-                    echo '</td>';
                 }
-                echo '</tr>';
+                echo "</div >";
+                echo '</td>';
             }
+            echo '</tr>';
+        }
         ?>
-        </table>
-    </div>
+    </table>
+</div>
 </body>
 </html>
 
@@ -149,3 +151,8 @@
         });
     });
 </script>
+
+<?php
+    $htmlContent = ob_get_clean();
+    file_put_contents('mendeleiev.html', $htmlContent);
+?>

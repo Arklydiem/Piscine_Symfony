@@ -5,4 +5,4 @@
     echo capital_city_from('Alabama');
     echo capital_city_from('New Jersey');
     echo capital_city_from('Colorado');
-?>
+    echo capital_city_from('KS');

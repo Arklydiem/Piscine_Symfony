@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sorted Users</title>
+</head>
+<body>
+<h1>Sorted Users</h1>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th><a href="{{ path('sortedUsers', { page: currentPage, sort: 'id', order: order == 'asc' and sort == 'id' ? 'desc' : 'asc' }) }}">ID</a></th>
+        <th><a href="{{ path('sortedUsers', { page: currentPage, sort: 'username', order: order == 'asc' and sort == 'username' ? 'desc' : 'asc' }) }}">Username</a></th>
+        <th><a href="{{ path('sortedUsers', { page: currentPage, sort: 'name', order: order == 'asc' and sort == 'name' ? 'desc' : 'asc' }) }}">Name</a></th>
+        <th><a href="{{ path('sortedUsers', { page: currentPage, sort: 'email', order: order == 'asc' and sort == 'email' ? 'desc' : 'asc' }) }}">Email</a></th>
+        <th>Enabled</th>
+        <th><a href="{{ path('sortedUsers', { page: currentPage, sort: 'birthdate', order: order == 'asc' and sort == 'birthdate' ? 'desc' : 'asc' }) }}">Birthdate</a></th>
+        <th>Address</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.enable ? 'Yes' : 'No' }}</td>
+            <td>{{ user.birthdate|date('Y-m-d') }}</td>
+            <td>{{ user.address }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<div>
+    <a href="{{ path('sortedUsers', { page: currentPage - 1, sort: sort, order: order }) }}"
+            {% if currentPage <= 1 %} style="visibility: hidden;" {% endif %}>Previous</a>
+
+    <span>Page {{ currentPage }} of {{ totalPages }}</span>
+
+    <a href="{{ path('sortedUsers', { page: currentPage + 1, sort: sort, order: order }) }}"
+            {% if currentPage >= totalPages %} style="visibility: hidden;" {% endif %}>Next</a>
+</div>
+</body>
+</html>

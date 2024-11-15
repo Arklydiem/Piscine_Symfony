@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create User</title>
+</head>
+<body>
+<h1>Create User</h1>
+
+{% for label, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="{{ label }}">{{ message }}</div>
+    {% endfor %}
+{% endfor %}
+
+{{ form_start(form) }}
+{{ form_errors(form) }}
+{{ form_widget(form) }}
+<button type="submit">Create User</button>
+{{ form_end(form) }}
+</body>
+</html>

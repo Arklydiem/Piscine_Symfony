@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Users</title>
+</head>
+<body>
+<h1>Search Users</h1>
+
+<form method="GET" action="{{ path('searchUsers') }}">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" value="{{ app.request.query.get('username') }}"><br><br>
+
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" value="{{ app.request.query.get('email') }}"><br><br>
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" value="{{ app.request.query.get('name') }}"><br><br>
+
+    <button type="submit">Search</button>
+</form>
+
+{% if message %}
+    <p>{{ message }}</p>
+{% endif %}
+
+{% if users is not empty %}
+    <table border="1">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Enabled</th>
+            <th>Birthdate</th>
+            <th>Address</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.enable ? 'Yes' : 'No' }}</td>
+                <td>{{ user.birthdate|date('Y-m-d') }}</td>
+                <td>{{ user.address }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+</body>
+</html>

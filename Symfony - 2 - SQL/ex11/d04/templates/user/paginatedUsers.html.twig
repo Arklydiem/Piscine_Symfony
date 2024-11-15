@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Paginated Users</title>
+</head>
+<body>
+<h1>Paginated Users</h1>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Enabled</th>
+        <th>Birthdate</th>
+        <th>Address</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.enable ? 'Yes' : 'No' }}</td>
+            <td>{{ user.birthdate|date('Y-m-d') }}</td>
+            <td>{{ user.address }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<div>
+    <a href="{{ path('paginatedUsers', { page: currentPage - 1 }) }}"
+            {% if currentPage <= 1 %} style="visibility: hidden;" {% endif %}>Previous</a>
+
+    <span>Page {{ currentPage }} of {{ totalPages }}</span>
+
+    <a href="{{ path('paginatedUsers', { page: currentPage + 1 }) }}"
+            {% if currentPage >= totalPages %} style="visibility: hidden;" {% endif %}>Next</a>
+</div>
+</body>
+</html>

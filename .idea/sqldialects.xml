@@ -2,5 +2,8 @@
 <project version="4">
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/Symfony - 2 - SQL/ex02/d04/src/Service/UserService.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/Symfony - 2 - SQL/ex07/d04/src/Service/UserService.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/Symfony - 2 - SQL/ex08/d04/src/Service/UserService.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/Symfony - 2 - SQL/ex09/d04/src/Service/UserService.php" dialect="GenericSQL" />
   </component>
 </project>

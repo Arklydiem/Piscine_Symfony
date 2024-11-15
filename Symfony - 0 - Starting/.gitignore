@@ -1,0 +1,10 @@
+.gitignore
+.idea
+*.subject.pdf
+ex01/ex01.txt
+ex02/ex02.php
+ex03/ex03.php
+ex04/ex04.php
+ex05/ex05.php
+ex06/ex06.txt
+ex06/mendeleiev.html

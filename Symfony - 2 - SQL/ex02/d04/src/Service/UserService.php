@@ -29,15 +29,17 @@ class UserService
 
     public function createTable(): bool
     {
-        $sql = "CREATE TABLE users (
+        $sql = "CREATE TABLE IF NOT EXISTS users (
             id SERIAL PRIMARY KEY,
-            username VARCHAR(255) UNIQUE NOT NULL,
+            username VARCHAR(255) NOT NULL,
             name VARCHAR(255) NOT NULL,
-            email VARCHAR(255) UNIQUE NOT NULL,
+            email VARCHAR(255) NOT NULL,
             enable BOOLEAN NOT NULL,
             birthdate TIMESTAMP NOT NULL,
-            address TEXT NOT NULL
+            address TEXT NOT NULL,
+            CONSTRAINT unique_username_email UNIQUE (username, email)
         )";
+
 
         try {
             $this->connection->exec($sql);
@@ -50,7 +52,9 @@ class UserService
     public function createUser($username, $name, $email, $enable, $birthdate, $address): bool
     {
         $sql = "INSERT INTO users (username, name, email, enable, birthdate, address) 
-            VALUES (:username, :name, :email, :enable, :birthdate, :address)";
+        VALUES (:username, :name, :email, :enable, :birthdate, :address)
+        ON CONFLICT (username, email) DO NOTHING";
+
 
         try {
             $stmt = $this->connection->prepare($sql);

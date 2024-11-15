@@ -21,10 +21,10 @@
         foreach ($locations as $location) {
             $value = trim($location);
             
-            if (array_key_exists($value, $states)) {
+            if (array_key_exists($value, $states) && isset($capitals[$states[$value]])) {
                 echo $capitals[$states[$value]] . " is the capital of " . $value . ".\n";
-            } 
-            else if (in_array($value, $capitals) && array_search(array_search($value, $capitals), $states) !== false) {
+            }
+            else if (in_array($value, $capitals) && in_array(array_search($value, $capitals), $states)) {
                 $stateName = array_search(array_search($value, $capitals), $states);
                 echo $value . " is the capital of " . $stateName . ".\n";
             } else {
@@ -32,5 +32,3 @@
             }
         }
     }
-
-?>
