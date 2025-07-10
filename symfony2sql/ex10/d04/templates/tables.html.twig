@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+    {% block stylesheets %}{% endblock %}
+    {% block javascripts %}{% endblock %}
+</head>
+<body style="display: flex; flex-direction: row; gap: 20px">
+
+<div>
+    <h2>Contenu de la table SQL</h2>
+    <ul>
+        {% for save in saves_sql %}
+            <li><strong>ID:</strong> {{ save.id }} — <strong>Valeur:</strong> {{ save.value }}</li>
+        {% else %}
+            <li>Aucune entrée SQL trouvée.</li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div>
+    <h2>Contenu de la table ORM</h2>
+    <ul>
+        {% for save in saves_orm %}
+            <li><strong>ID:</strong> {{ save.id }} — <strong>Valeur:</strong> {{ save.value }}</li>
+        {% else %}
+            <li>Aucune entrée ORM trouvée.</li>
+        {% endfor %}
+    </ul>
+</div>
+
+</body>
+</html>

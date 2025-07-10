@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Database Table</title>
+</head>
+<body>
+<h1>Create the 'users' Table</h1>
+
+{% if message %}
+    <p>{{ message }}</p>
+{% endif %}
+
+<form method="POST" action="{{ path('createTable') }}">
+    <button type="submit">Create Table</button>
+</form>
+</body>
+</html>
